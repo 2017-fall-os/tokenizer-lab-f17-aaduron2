@@ -23,21 +23,28 @@ To compile the program, simply make your way to the tokenizer folder and enter t
    ~~~
    
 Instructions
-------------
+-------------
 
-You'll notice that it starts with an identical look to a regular command prompt as such:
+Tokenizer starts by asking for a delimiter that is limited to a char:
+
+
+   ~~~
+   Enter delimiter value:
+   ~~~
+
+After the delimiter is set, you may begin tokenizing your input string:
 
    ~~~
    $ 
    ~~~
    
-Everytime you hit enter, it'll parse the string you have inputted and should display each string you inputted on different lines to show it has succeeded.
+Everytime you hit enter, it'll parse the string you have inputted and should display each string inputted on different lines to show it has succeeded.
+   
+To exit tokenizer, simply type "exit":
 
-
-List of Known Issues
---------------------
-
-- It will not parse a string unless there is an empty space at the end of the string.
+   ~~~
+   $ exit
+   ~~~
 
 
 Resources / References
