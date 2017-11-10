@@ -2,7 +2,7 @@
  * Description: This source file parses the string inputted by the user
  *
  * Author: Duron, Andrew
- * Date: September 11, 2017
+ * Date: Novembr 10, 2017
  * Availability: github repository
  *
  *
@@ -17,11 +17,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int noTokens;
+
 char ** mytoc(char *str, char delim) {
 
   char *pStr, *copy, *pCopy;
   size_t len;
-  int noTokens = 0, tokNum = 0, bytes = 0, index = 0, start = 0, count = 0;
+  int tokNum = 0, bytes = 0, index = 0, start = 0;
 
   for (pStr = str; *pStr; pStr++)
     len = pStr - str + 1;
@@ -31,6 +33,8 @@ char ** mytoc(char *str, char delim) {
     *(pCopy++) = *pStr;
 
   pCopy = 0;
+
+  noTokens = 0;
   
   /* Traverse through the string and count the no. of tokens */
   while(1) {
@@ -50,8 +54,6 @@ char ** mytoc(char *str, char delim) {
     }
   }
 
-  free(copy);
-
   /* Allocate memory for token vector */
   char **tokenVec = (char **)calloc(noTokens, sizeof(char*));
 
@@ -59,10 +61,10 @@ char ** mytoc(char *str, char delim) {
   int cStart = 0;  //Start of string
   
   /* Parse through the characters for each word */
-  while (str[index] != '\0') {
-    if (str[index] != delim) {
+  while (copy[index] != '\0') {
+    if (copy[index] != delim) {
       cStart = index;
-      while (str[index] != delim && str[index] != '\0') {
+      while (copy[index] != delim && copy[index] != '\0') {
 	index++;
       }
       int length = index - cStart; 
@@ -70,7 +72,6 @@ char ** mytoc(char *str, char delim) {
       for (int i = 0; i < length; i++) {
 	tokenVec[tokNum][i] = str[cStart+i];
       }
-      tokenVec[tokNum][length] = '\0';
       tokNum++;
     }
     else {
@@ -78,24 +79,26 @@ char ** mytoc(char *str, char delim) {
     }
   }
   
+  free(copy);
+
   return tokenVec;
 }
 
 void print_vector(char **vector) {
-  int i = 0;
-  while (vector[i] != '\0') {
+  int i;
+  
+  for (i = 0; i < noTokens; i++) {
     printf("%s\n", vector[i]);
-    i++;
+    fflush(stdout);
   }
 }
 
 void free_vector(char **vector) {
   int i = 0;
-  while (vector[i] != '\0') {
+  for (int i = 0; i <= noTokens; i++) {
     free(vector[i]);
     i++;
   }
-  free(vector[i]);
   free(vector);
 }
 
