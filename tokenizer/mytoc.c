@@ -97,7 +97,6 @@ void free_vector(char **vector) {
   int i = 0;
   for (int i = 0; i <= noTokens; i++) {
     free(vector[i]);
-    i++;
   }
   free(vector);
 }
