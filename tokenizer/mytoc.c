@@ -72,6 +72,7 @@ char ** mytoc(char *str, char delim) {
       for (int i = 0; i < length; i++) {
 	tokenVec[tokNum][i] = str[cStart+i];
       }
+      tokenVec[tokNum][length] = '\0';
       tokNum++;
     }
     else {
@@ -95,7 +96,7 @@ void print_vector(char **vector) {
 
 void free_vector(char **vector) {
   int i = 0;
-  for (int i = 0; i <= noTokens; i++) {
+  for (int i = 0; i < noTokens; i++) {
     free(vector[i]);
   }
   free(vector);

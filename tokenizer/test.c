@@ -6,18 +6,10 @@
 #define INBUFLEN 1024
 
 int main (void) {
-  char line[INBUFLEN], **vector, delim[1], delimiter = ' ';
-  int loop = 1;
-  /*
-  write(1, "Enter delimiter value: ", 23);
-  read(0, delim, 1);
-
-  if (delim[0] == '\0')
-    delimiter = ' ';
-  else
-    delimiter = delim[0];
-  */
+  char **vector, delimiter = ' ';
+  
   while(1) {
+    char line[INBUFLEN];
     write(1, "$ ", 2);
     read(0, line, INBUFLEN);
     vector = mytoc(line, delimiter);
@@ -27,6 +19,8 @@ int main (void) {
     }
     print_vector(vector);
     free_vector(vector);
+    for (int i = 0; i < sizeof(line); i++)
+      line[i] = 0;
   }
   
   return 0;
