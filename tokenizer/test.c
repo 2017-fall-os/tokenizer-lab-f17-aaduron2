@@ -13,8 +13,7 @@ int main (void) {
     write(1, "$ ", 2);
     read(0, line, INBUFLEN);
     vector = mytoc(line, delimiter);
-    if (exit_loop(vector[0])) {
-      free_vector(vector);
+    if (exit_loop(vector[0], "exit")) {
       return 0;
     }
     print_vector(vector);

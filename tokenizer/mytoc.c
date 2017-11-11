@@ -102,15 +102,19 @@ void free_vector(char **vector) {
   free(vector);
 }
 
-int exit_loop(char *string) {
-  if (string[0] == 'e') {
-    if (string[1] == 'x') {
-      if (string[2] == 'i') {
-	if (string[3] == 't') {
-	    return 1;
-	}
+int exit_loop(char *string, char *test) {
+  int length = sizeof(test);
+  int result = 0;
+  if (length = sizeof(string)) {
+    int i = 0;
+    while (i < length) {
+      if (string[i] == test[i]) {
+	result = 1;
+	i++;
       }
+      else
+	return 0;
     }
   }
-  return 0;
+  return result;
 }
