@@ -25,14 +25,7 @@ To compile the program, simply make your way to the tokenizer folder and enter t
 Instructions
 -------------
 
-Tokenizer starts by asking for a delimiter that is limited to a char:
-
-
-   ~~~
-   Enter delimiter value:
-   ~~~
-
-After the delimiter is set, you may begin tokenizing your input string:
+The prompt will look like a standard command prompt, you may begin tokenizing your input string:
 
    ~~~
    $ 
@@ -46,6 +39,10 @@ To exit tokenizer, simply type "exit":
    $ exit
    ~~~
 
+Extras
+------
+
+The delimiter may be changed as it's a char variable defined in main.
 
 Resources / References
 ----------------------
